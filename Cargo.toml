@@ -1,0 +1,16 @@
+[package]
+name = "stdin-to-cloudwatch"
+description = "Send logs from stdin to AWS CloudWatch Logs"
+version = "0.1.0"
+authors = ["Kenta Suzuki <k-suzuki@mi-labo.co.jp>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.79"
+clap = { version = "4.5.1", features = ["derive"] }
+tokio = { version = "1.20.6", features = ["full"] }
+chrono = "0.4.34"
+aws-config = { version = "1.1.5", features = ["behavior-version-latest"]}
+aws-sdk-cloudwatchlogs = "1.15.0"
