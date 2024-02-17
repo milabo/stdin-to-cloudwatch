@@ -5,6 +5,7 @@ version = "0.2.0"
 authors = ["Kenta Suzuki <k-suzuki@mi-labo.co.jp>"]
 edition = "2021"
 license = "MIT"
+repository = "https://github.com/milabo/stdin-to-cloudwatch"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
