@@ -13,6 +13,10 @@ pub struct Args {
     /// The name of log stream.
     #[clap(required = true)]
     pub log_stream_name: String,
+    /// Add timestamp to log stream name.
+    /// (e.g. "log_stream_name-1234567890")
+    #[clap(short, long, default_value = "false")]
+    pub suffix_stream_name_with_timestamp: bool,
     /// Delete log stream if exists by designated name.
     #[clap(short, long, default_value = "false")]
     pub remake_log_stream: bool,
@@ -23,4 +27,18 @@ pub struct Args {
     /// (for LocalStack: http://localhost:4566)
     #[clap(long)]
     pub endpoint_url: Option<String>,
+}
+
+impl Args {
+    pub fn log_stream_name(&self) -> String {
+        if self.suffix_stream_name_with_timestamp {
+            format!(
+                "{}-{}",
+                self.log_stream_name,
+                chrono::Utc::now().timestamp()
+            )
+        } else {
+            self.log_stream_name.clone()
+        }
+    }
 }

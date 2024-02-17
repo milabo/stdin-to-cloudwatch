@@ -11,7 +11,7 @@ async fn main() -> anyhow::Result<()> {
         &args.region,
         &args.endpoint_url,
         &args.log_group_name,
-        &args.log_stream_name,
+        &args.log_stream_name(),
     )
     .await;
     client.initialize_log_stream(args.remake_log_stream).await?;

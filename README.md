@@ -46,3 +46,13 @@ If the log stream already exists, delete it and create a new one.
 ```sh
 echo "Hello, World!" | stdin-to-cloudwatch MyLogGroup MyLogStream --remake-log-stream
 ```
+
+### `-s`, `--suffix-stream-name-with-timestamp`
+
+Append the current timestamp to the log stream name.
+
+```sh
+echo "Hello, World!" | stdin-to-cloudwatch MyLogGroup MyLogStream --suffix-stream-name-with-timestamp
+```
+
+stream name will be like `MyLogStream-1708169869`
