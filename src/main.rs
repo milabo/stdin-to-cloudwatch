@@ -15,8 +15,13 @@ async fn main() -> anyhow::Result<()> {
     )
     .await;
     client.initialize_log_stream(args.remake_log_stream).await?;
-    client
-        .put(chrono::Utc::now().timestamp_millis(), "これはテストです")
-        .await?;
+    loop {
+        let mut input = String::new();
+        std::io::stdin().read_line(&mut input)?;
+        if input.is_empty() {
+            break;
+        }
+        client.put(chrono::Utc::now().timestamp_millis(), &input).await?;
+    }
     Ok(())
 }
