@@ -56,3 +56,11 @@ echo "Hello, World!" | stdin-to-cloudwatch MyLogGroup MyLogStream --suffix-strea
 ```
 
 stream name will be like `MyLogStream-1708169869`
+
+### `--pass-through`
+
+Pass the logs through to stdout after sending them to CloudWatch Logs.
+
+```sh
+echo "Hello, World!" | stdin-to-cloudwatch MyLogGroup MyLogStream --pass-through
+```

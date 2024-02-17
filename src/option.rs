@@ -27,6 +27,9 @@ pub struct Args {
     /// (for LocalStack: http://localhost:4566)
     #[clap(long)]
     pub endpoint_url: Option<String>,
+    /// Pass through input to stdout.
+    #[clap(long)]
+    pub pass_through: bool
 }
 
 impl Args {

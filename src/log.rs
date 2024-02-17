@@ -70,22 +70,22 @@ async fn initialize_log_stream(
 ) -> anyhow::Result<()> {
     if log_group_exists(client, group_name).await? {
         create_log_group(client, group_name).await?;
-        println!("log group created")
+        eprintln!("log group created")
     } else {
-        println!("log group already exists")
+        eprintln!("log group already exists")
     }
 
     if log_stream_exists(client, group_name, stream_name).await? {
-        println!("log stream already exists");
+        eprintln!("log stream already exists");
         if remake_stream {
             delete_log_stream(client, group_name, stream_name).await?;
-            println!("log stream deleted");
+            eprintln!("log stream deleted");
             create_log_stream(client, group_name, stream_name).await?;
-            println!("log stream created");
+            eprintln!("log stream created");
         }
     } else {
         create_log_stream(client, group_name, stream_name).await?;
-        println!("log stream created");
+        eprintln!("log stream created");
     }
     Ok(())
 }

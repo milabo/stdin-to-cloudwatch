@@ -22,6 +22,9 @@ async fn main() -> anyhow::Result<()> {
             break;
         }
         client.put(chrono::Utc::now().timestamp_millis(), &input).await?;
+        if args.pass_through {
+            print!("{}", input);
+        }
     }
     Ok(())
 }
